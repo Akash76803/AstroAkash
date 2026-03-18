@@ -1,4 +1,4 @@
-# Astro Akash — UI/UX Design System
+# AstroBud — UI/UX Design System
 
 ---
 

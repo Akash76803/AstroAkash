@@ -1,0 +1,13 @@
+{
+  "language": "mr",
+  "request_full_report": true,
+  "mode": "detailed",
+  "date": "1995-10-15",
+  "time": "14:30:00",
+  "location": {
+    "name": "Mumbai",
+    "latitude": 19.076,
+    "longitude": 72.8777,
+    "timezone": "Asia/Kolkata"
+  }
+}

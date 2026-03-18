@@ -1,0 +1,27 @@
+{
+  "language": "hi",
+  "request_full_report": true,
+  "mode": "detailed",
+  "partner_a": {
+    "name": "Aarav",
+    "date": "1995-10-15",
+    "time": "14:30:00",
+    "location": {
+      "name": "Mumbai",
+      "latitude": 19.076,
+      "longitude": 72.8777,
+      "timezone": "Asia/Kolkata"
+    }
+  },
+  "partner_b": {
+    "name": "Siya",
+    "date": "1997-06-25",
+    "time": "09:15:00",
+    "location": {
+      "name": "Pune",
+      "latitude": 18.5204,
+      "longitude": 73.8567,
+      "timezone": "Asia/Kolkata"
+    }
+  }
+}
