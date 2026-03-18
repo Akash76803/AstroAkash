@@ -1,82 +1,102 @@
-# ✨ Astro Akash — AI-Powered Vedic Astrology Platform
+# Astro Bud
 
-Astro Akash is a modern, production-ready astrology web application designed with a cosmic, mystical aesthetic. It provides users with deep astrological insights through birth charts (Kundli), daily horoscopes, compatibility matching, and AI-powered readings.
+Astro Bud is a Vedic astrology web application built with:
 
-![Astro Akash Hero](https://images.unsplash.com/photo-1506318137071-a8e063b4b477?q=80&w=1200&auto=format&fit=crop)
+- Next.js frontend in [client](C:/Users/DELL7480/Documents/AI%20Projects/Astro%20Akash/client)
+- Supabase backend and Edge Functions in [supabase](C:/Users/DELL7480/Documents/AI%20Projects/Astro%20Akash/supabase)
+- Node.js astrology report service in [server](C:/Users/DELL7480/Documents/AI%20Projects/Astro%20Akash/server)
 
-## 🌌 Features
+## Current architecture
 
--   **🔐 Secure Authentication**: Integrated with Supabase Auth (Email/Password + Google OAuth).
--   **📅 Daily Horoscopes**: Personalized daily, weekly, and monthly predictions for all 12 zodiac signs.
--   **☸️ Kundli Generator**: Detailed North Indian and Western birth charts with planetary positions, degrees, and nakshatras.
--   **❤️ Compatibility Checker**: Ashtakoot Guna Milan (36-point match) with detailed score breakdowns.
--   **🧠 AI Insights**: Advanced AI-driven analysis of birth charts for personality, career, and relationships.
--   **📊 Interactive Visualizations**: Dynamic SVG charts built with D3.js and responsive UI components.
--   **📱 Fully Responsive**: A premium "mobile-first" experience with a cosmic dark-mode theme.
+- `client/`
+  - Next.js App Router
+  - Tailwind CSS
+  - Kundli and compatibility pages
+- `supabase/`
+  - database
+  - auth
+  - current chart/transit function layer
+- `server/`
+  - Express-based astrology report service
+  - Swiss Ephemeris-backed chart engine
+  - multilingual report generation
 
-## 🛠️ Technology Stack
+## Current status
 
--   **Frontend**: [Next.js 15](https://nextjs.org/) (App Router, TypeScript)
--   **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
--   **Database & Auth**: [Supabase](https://supabase.com/)
--   **Animations**: [Framer Motion](https://www.framer.com/motion/)
--   **Data Visualization**: [D3.js](https://d3js.org/) & [Chart.js](https://www.chartjs.org/)
--   **Icons**: [Lucide React](https://lucide.dev/)
+- Kundli generation is working with real chart data.
+- Node report service is running locally and powers detailed Kundli analysis.
+- Frontend form visibility has been refreshed and verified locally.
+- Compatibility page works, but its deep narrative layer is still behind the Kundli report in quality and depth.
 
-## 📂 Project Structure
+## Local URLs
 
-```bash
-├── client/              # Next.js frontend application
-│   ├── src/
-│   │   ├── app/         # App router pages and layouts
-│   │   ├── components/  # Reusable UI, Layout, and Feature components
-│   │   ├── hooks/       # Custom React hooks (useAuth, etc.)
-│   │   ├── lib/         # Utility functions and API clients
-│   │   └── types/       # Global TypeScript interfaces
-├── Note/                # Project design and implementation docs
-└── README.md            # Project overview
+Current verified local URLs:
+
+- App Kundli: `http://127.0.0.1:3005/kundli`
+- App Compatibility: `http://127.0.0.1:3005/compatibility`
+- Node report backend: `http://127.0.0.1:4102`
+
+## Project structure
+
+```text
+Astro Bud/
+  client/      Next.js frontend
+  supabase/    Supabase backend layer
+  server/      Node astrology/report service
+  database/    SQL migrations
+  Note/        migration and architecture notes
 ```
 
-## 🚀 Getting Started
+## Run locally
 
-### 1. Clone & Install
+### Frontend
 
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd astro-akash
-
-# Install dependencies
 cd client
 npm install
+npm run build
+npm run start -- -H 127.0.0.1 -p 3005
 ```
 
-### 2. Environment Variables
+### Node astrology report service
 
-Create a `.env.local` file in the `client` directory:
+```bash
+cd server
+npm install
+npm run build
+set PORT=4102&& npm run start
+```
+
+### Supabase layer
+
+See [supabase/README.md](C:/Users/DELL7480/Documents/AI%20Projects/Astro%20Akash/supabase/README.md).
+
+## Environment
+
+Frontend:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
+NEXT_PUBLIC_ASTROLOGY_REPORTS_URL=http://127.0.0.1:4102/api/v1
 ```
 
-### 3. Run Development Server
+Node service:
 
-```bash
-npm run dev
+```env
+SWISSEPH_EPHE_PATH=./ephe
+PORT=4102
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the application.
+## Notes
 
-## 🎨 Design Philosophy
+- `swisseph-v2` is a native Node addon and needs native build prerequisites on Windows.
+- Kundli detailed analysis is currently the strongest verified flow.
+- Compatibility scoring works, but the report-writing layer still needs another pass for deeper section-wise matching interpretation.
 
-Astro Akash follows a **"Cosmic Mystical"** design language:
--   **Color Palette**: Deep void purples, nebula blues, and stardust golds.
--   **Glassmorphism**: Elegant translucent cards with subtle glow effects.
--   **Micro-animations**: Parallax star fields and smooth zodiac rotations.
--   **Typography**: Space Grotesk for headings and Inter for readability.
+## Docs
 
----
-
-Built with ✨ and 🌌 by the Astro Akash Team.
+- [client/README.md](C:/Users/DELL7480/Documents/AI%20Projects/Astro%20Akash/client/README.md)
+- [server/README.md](C:/Users/DELL7480/Documents/AI%20Projects/Astro%20Akash/server/README.md)
+- [supabase/README.md](C:/Users/DELL7480/Documents/AI%20Projects/Astro%20Akash/supabase/README.md)
+- [Note/node-swiss-migration.md](C:/Users/DELL7480/Documents/AI%20Projects/Astro%20Akash/Note/node-swiss-migration.md)
